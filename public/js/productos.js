@@ -82,12 +82,25 @@ window.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.error('Error:', err));
 
     // Agregar producto
+    fetch('http://localhost:3000/usuario/rol', {
+        method: 'GET',
+        credentials: 'include'
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.response === 'success' && data.rol === 'proveedor') {
+                document.getElementById('formulario-agregar').style.display = 'block';
+            }
+        })
+        .catch(err => console.error('Error:', err));
+    
+    // Agregar producto
     const agregarProductoForm = document.getElementById('agregar-producto-form');
     agregarProductoForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const nombre = document.getElementById('nombre').value;
         const cantidad = document.getElementById('cantidad').value;
-
+    
         fetch('http://localhost:3000/productos/agregar', {
             method: 'POST',
             headers: {
@@ -149,4 +162,22 @@ window.addEventListener('DOMContentLoaded', () => {
                 .catch(err => console.error('Error:', err));
         }
     };
+
+    // Botón para cerrar sesión
+    const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+    btnCerrarSesion.addEventListener('click', () => {
+        fetch('/usuarios/logout', { 
+            method: 'POST',
+            credentials: 'include'
+        })
+            .then(res => {
+                if (res.redirected) {
+                    window.location.href = res.url; // Redirigir al usuario a la página de inicio
+                } else {
+                    alert('Error al cerrar sesión');
+                }
+            })
+            .catch(err => console.error('Error:', err));
+    });
+
 });

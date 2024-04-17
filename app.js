@@ -15,9 +15,9 @@ app.use(session({
     secret: 'tu-secreto', // Secreto para firmar las cookies de sesión
     resave: false,
     saveUninitialized: false
-})); 
+}));
 
-mongoose.connect('mongodb+srv://daniel:1234@test.akb5cl4.mongodb.net/?retryWrites=true&w=majority&appName=test');
+mongoose.connect('mongodb+srv://daniel:1234@test.akb5cl4.mongodb.net/test');
 
 const connection = mongoose.connection;
 
@@ -81,9 +81,19 @@ app.post('/usuarios/login', (req, res) => {
 
 // Ruta para cerrar sesión
 app.post('/usuarios/logout', (req, res) => {
+    // Limpiar las cookies del cliente
+    res.clearCookie('connect.sid');
+    
     // Destruir la sesión del usuario
-    req.session.destroy();
-    res.redirect('/'); // Redirigir al usuario a la página de inicio
+    req.session.destroy(err => {
+        if (err) {
+            console.error('Error al cerrar sesión:', err);
+            res.status(500).json({ response: 'failed', message: 'Error interno del servidor' });
+        } else {
+            console.log('Sesión cerrada correctamente');
+            res.redirect('/'); // Redirigir al usuario a la página de inicio
+        }
+    });
 });
 
 // Rutas protegidas que requieren autenticación
@@ -199,6 +209,7 @@ app.delete('/productos/:id', requireAuth, (req, res) => {
             res.status(400).json({ response: 'failed', message: 'Error al eliminar el producto' });
         });
 });
+
 
 app.listen(3000, () => {
     console.log('Servidor listo...');
