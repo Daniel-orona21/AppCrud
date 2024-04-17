@@ -15,9 +15,9 @@ app.use(session({
     secret: 'tu-secreto', // Secreto para firmar las cookies de sesión
     resave: false,
     saveUninitialized: false
-}));
+})); 
 
-mongoose.connect('mongodb://localhost/usuarios_productos_proveedores');
+mongoose.connect('mongodb+srv://dannielorona:AlejandroD1@usuarios-productos-prov.pbu4zcr.mongodb.net/?retryWrites=true&w=majority&appName=usuarios-productos-proveedores');
 
 const connection = mongoose.connection;
 
