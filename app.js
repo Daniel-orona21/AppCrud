@@ -17,7 +17,7 @@ app.use(session({
     saveUninitialized: false
 })); 
 
-mongoose.connect('mongodb+srv://dannielorona:AlejandroD1@usuarios-productos-prov.pbu4zcr.mongodb.net/?retryWrites=true&w=majority&appName=usuarios-productos-proveedores');
+mongoose.connect('mongodb+srv://daniel:1234@test.akb5cl4.mongodb.net/?retryWrites=true&w=majority&appName=test');
 
 const connection = mongoose.connection;
 
