@@ -83,3 +83,17 @@ th, td {
 #productos-table {
     margin: 0 auto; /* Centra la tabla horizontalmente */
 }
+#formulario-agregar {
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    width: 600px; /* Ajusta el ancho del formulario según sea necesario */
+}
+
+#titulo2 {
+    text-align: center;
+}
+
+#btn-cerrar-sesion {
+    margin: 0 auto;
+    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    width: fit-content;
+}
