@@ -1,0 +1,85 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    background-color: rgb(34, 34, 34);
+}
+#main-container{
+    margin: 0 auto;
+    width: 600px;
+}
+
+/* Estilo para inputs de tipo texto */
+input[type="text"], input[type="password"] {
+    font-size: 18px; /* Tamaño de la fuente */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 10px;
+    margin: 10px;
+}
+
+h2 {
+    color: #ffff;
+}
+
+.titulo{
+    text-align: center;
+}
+
+/* Estilo para inputs de tipo texto cuando están enfocados */
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: rgb(30, 71, 136); /* Cambia el color del borde cuando están enfocados */
+    outline: none; /* Quita el contorno alrededor del input */
+}
+
+/* Estilo para botones */
+button {
+    font-size: 20px; /* Tamaño de la fuente */
+    padding: 5px 5px; /* Espaciado interno */
+    border: none; /* Quita el borde */
+    border-radius: 5px; /* Borde redondeado */
+    background-color: rgb(69, 69, 69); /* Color de fondo */
+    color: white; /* Color del texto */
+    cursor: pointer; /* Cursor de tipo mano */
+}
+
+
+button:focus {
+    outline: none; 
+}
+
+
+select {
+    font-size: 20px;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+select:focus {
+    border-color: rgb(30, 71, 136); 
+    outline: none; 
+}
+
+#main-container form input{
+    font-size: 24px;
+    padding: 20px;
+    width: 558px;
+}
+
+table {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 80%;
+    align-content: center;
+}
+
+th, td {
+    text-align: center; /* Centra el contenido de las celdas horizontalmente */
+}
+
+#productos-container {
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+#productos-table {
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+}
